@@ -1,6 +1,6 @@
 <?php
-
-include_once '../../configuracion.php';
+$Titulo = "Modificar Auto"; 
+include_once("../estructura/cabecera.php");
 $objAbmTabla = new AbmAuto();
 $datos = data_submitted();
 $obj =NULL;
@@ -11,17 +11,11 @@ if (isset($datos['Patente'])){
     }
 }
 
-?>	
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//ES" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
-<head>
-<title>Ejemplo</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-</head>
-<body>
+?>
+<div class="container">
 <h3>Auto</h3>
 <?php if ($obj!=null){?>
-<form method="post" action="accion/abmAuto.php">
+<form method="post" action="abmAuto.php">
 	<label>ID</label><br/>
 	<input id="Patente:" readonly name ="Patente" width="80" type="text" value="<?php echo $obj->getPatente()?>"><br/>
 	<label>Marca</label><br/>

@@ -1,33 +1,63 @@
 <?php
 
-include_once "../../configuracion.php";
+$Titulo = "Ver Autos"; 
+include_once("../estructura/cabecera.php");
+//include_once("../../configuracion.php");
+
 $objAbmTabla = new AbmAuto();
 
 $listaTabla = $objAbmTabla->buscar(null);
 
 ?>	
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//ES" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
-<head>
-<title>Ver Autos</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-</head>
-<body>
-<h3>ABM - Autos</h3>
+
+<div class="container">
+<h3 align="center">ABM - Autos</h3>
 <!-- <a href="ftabla_nuevo.php">nuevo</a> -->
-<table border="1">
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="">#</th>
+      <th scope="col">Patente</th>
+      <th scope="col">Marca</th>
+      <th scope="col">Modelo</th>
+      <th scope="col">Dueño</th>
+    </tr>
+    </thead>
 <?php	
 
- if( count($listaTabla)>0){
-    foreach ($listaTabla as $objTabla) { 
+ if( count($listaTabla)>0)
+ {
+     $i=1;
+     echo '<tbody>';
+    foreach ($listaTabla as $objTabla) 
+    { 
         
-        echo '<tr><td style="width:500px;">'.$objTabla->getMarca().'</td>';
-        echo '<td><a href="fauto_editar.php?Patente='.$objTabla->getPatente().'">editar</a></td>';
-        //echo '<td><a href="accion/abmAuto.php?accion=borrar&id='.$objTabla->getId().'">borrar</a></td></tr>'; 
-	}
+        echo '<tr>';
+        echo '<th scope="row">'.$i.'</th>';
+        echo '<td>'.$objTabla->getPatente().'</td>';
+        echo '<td>'.$objTabla->getMarca().'</td>';
+        echo '<td>'.$objTabla->getModelo().'</td>';
+        echo '<td>'.$objTabla->MostrarDuenio().'</td>';
+         echo '<td><a href="fauto_editar.php?Patente='.$objTabla->getPatente().'">editar</a></td>';
+        echo '<td><a href="accion/abmAuto.php?accion=borrar&id='.$objTabla->getPatente().'">borrar</a></td>';
+        echo '</tr>';
+        $i++;
+    }
+    echo '</tbody>';
+    echo'</table>';
+
 }
 
+
+        // echo '<tr><td style="width:500px;">'.$objTabla->getMarca().'</td>';
+        // echo '<td><a href="fauto_editar.php?Patente='.$objTabla->getPatente().'">editar</a></td>';
+        //echo '<td><a href="accion/abmAuto.php?accion=borrar&id='.$objTabla->getId().'">borrar</a></td></tr>'; 
+	
+
+
 ?>
-</table>
-</body>
-</html>
+</DIV>
+
+<?php
+include_once("../estructura/pie.php");
+?>

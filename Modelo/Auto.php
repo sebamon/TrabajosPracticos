@@ -56,6 +56,11 @@ class Auto {
         $this->DniDuenio = $valor;
         
     }
+    public function MostrarDuenio()
+    {
+    
+        return $DniDuenio.MostrarNombreyApellido();
+    }
     
     
     public function cargar(){
@@ -145,7 +150,11 @@ class Auto {
                 
                 while ($row = $base->Registro()){
                     $obj= new Auto();
-                    $obj->setear($row['Patente'], $row['Marca'], $row['Modelo'], $row['DniDuenio']);
+                    $persona = new Persona();
+                    $persona->setNroDni($row['DniDuenio']);
+                    $persona->cargar();
+                    $obj->setear($row['Patente'], $row['Marca'], $row['Modelo'], $persona);
+
                     array_push($arreglo, $obj);
                 }
                

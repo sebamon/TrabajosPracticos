@@ -1,11 +1,12 @@
-<?php header('Content-Type: text/html; charset=utf-8');
-header ("Cache-Control: no-cache, must-revalidate ");
+<?php
+//  header('Content-Type: text/html; charset=utf-8');
+// header ("Cache-Control: no-cache, must-revalidate ");
 
 /////////////////////////////
 // CONFIGURACION APP//
 /////////////////////////////
 
-$PROYECTO ='Produccion/114490FiDrive';
+$PROYECTO ='PWD2020';
 
 //variable que almacena el directorio del proyecto
 $ROOT =$_SERVER['DOCUMENT_ROOT']."/$PROYECTO/";

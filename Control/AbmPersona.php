@@ -11,9 +11,9 @@ class AbmPersona{
     private function cargarObjeto($param){
         $obj = null;
            
-        if( array_key_exists('NroDni',$param) and array_key_exists('Apellido',$param)){
+        if( array_key_exists('NroDni',$param)){
             $obj = new Persona();
-            $obj->setear($param['NroDni'], $param['Apellido']);
+            $obj->setear($param['NroDni'], $param['Apellido'], $param['Nombre'],$param['fechaNac'],$param['Telefono'],$param['Domicilio']);
         }
         return $obj;
     }
@@ -118,7 +118,7 @@ class AbmPersona{
                  $where.=" and Domicilio ='".$param['Domicilio']."'";
             
         }
-        $arreglo = Tabla::listar($where);  
+        $arreglo = Persona::listar($where);  
         return $arreglo;
             
             
