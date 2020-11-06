@@ -1,8 +1,20 @@
 <?php
 class Session {
 
-    public function iniciar()
+    $ssNombre;
+    $ssPass;
+    $ssEmail;
+    $ssRol;
+    $ssDescripcionRol;
+    
+    
 
+
+
+    public function iniciar()
+    {
+
+    }
 
 }
 
