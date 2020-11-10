@@ -169,10 +169,20 @@ class usuario {
             }
             
         } else {
-            $this->setmensajeoperacion("Tabla->listar: ".$base->getError());
+           // $this->setmensajeoperacion("Tabla->listar: ".$base->getError());
         }
  
         return $arreglo;
+    }
+
+
+    public static function Login($crendenciales) 
+    {
+
+        
+        $base=new BaseDatos();
+        $sql="SELECT * FROM usuario where usnombre='".$credenciales->getN."';";
+
     }
     
 }

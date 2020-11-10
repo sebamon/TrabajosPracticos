@@ -80,22 +80,67 @@ class Session {
 
     public function iniciar($user,$pass)
     {
-        session_start();
-        $session = new Session();
-        
 
+        $buscar = array('usnombre')
+        $usuario = new usuario();
+        $usuario->setussNombre($user);
+        $usuario->setussPass($pass);
+
+        $usuario = AbmUsuario::buscar($usuario);
+        if(isset($usuario))
+        {
+            $rol = AbmUsuarioRol::buscar($usuario->getidusuario());
+            $this->setUsuario=$usuario;
+            if(isset($rol))
+            {
+                $this->setRol($rol);
+            }
+
+
+        }
+        //session_start();
+      //  $session = new Session();
         $session->setUsuario($user);
         $session->setssPass($pass);
 
-        $_SESSION=$session;
+        //$_SESSION=$session;
 
 
     }
 
     public function validar()
     {
-        $
+
+
+        $abmUser = new AbmUsuario();
+
+        $user = new usuario();
+        -
+        $user= $abmUser->buscar($this->getUsuario());
+
+        
+        
+        
     }
+
+    public function activa()
+    {
+        $activo=false;
+        if(isset($this))
+        {
+            $activo=true;
+        }
+
+        return $activo;
+    }
+
+    public function cerrar()
+    {
+        session_unset();
+        session_destroy();
+    }
+
+
 
 }
 
