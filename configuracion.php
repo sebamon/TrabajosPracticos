@@ -6,7 +6,7 @@
 // CONFIGURACION APP//
 /////////////////////////////
 
-$PROYECTO ='PWD2020';
+$PROYECTO ='TrabajosPracticos';
 
 //variable que almacena el directorio del proyecto
 $ROOT =$_SERVER['DOCUMENT_ROOT']."/$PROYECTO/";
