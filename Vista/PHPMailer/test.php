@@ -29,11 +29,11 @@ include_once "../../configuracion.php";
     -->
     <div class="container">
     <h2>Container</h2>
-    <form action="accion.php" method="GET">
+    <form action="accion.php" method="POST" enctype="multipart/form-data">
   <div class="form-group row">
     <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
     <div class="col-sm-10">
-      <input type="email" class="form-control" id="inputEmail3">
+      <input type="email" class="form-control" id="email" name="email">
     </div>
   </div>
   <div class="form-group row">
@@ -46,6 +46,12 @@ include_once "../../configuracion.php";
     <label for="Texto" class="col-sm-2 col-form-label">Texto</label>
     <div class="col-sm-10">
       <input type="text" class="form-control" name="cuerpoEmail" id="cuerpoEmail">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="Texto" class="col-sm-2 col-form-label">Archivo Adjunto</label>
+    <div class="col-sm-10">
+      <input type="file" class="form-control" name="file" id="file">
     </div>
   </div>
   <div class="form-group row">
