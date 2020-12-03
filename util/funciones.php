@@ -24,6 +24,7 @@ function verEstructura($e){
 
 function __autoload($class_name){
   //  echo "class ".$class_name ;
+    $_SERVER['DOCUMENT_ROOT']."/$PROYECTO/";
     $directorys = array(
         $_SESSION['ROOT'].'Modelo/',
         $_SESSION['ROOT'].'Modelo/conector/',
